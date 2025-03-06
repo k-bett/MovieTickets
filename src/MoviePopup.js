@@ -20,8 +20,7 @@ export default class MoviePopup extends Component {
   static propTypes = {
     isOpen: PropTypes.bool.isRequired,
     // Video URL for the movie
-    videoUrl: PropTypes.string,
-    // Called when popup closed
+    videoUrl: PropTypes.string Called when popup closed
     onClose: PropTypes.func,
   }
 
@@ -55,7 +54,7 @@ export default class MoviePopup extends Component {
         LayoutAnimation.easeInEaseOut();
 
         if (newHeight > height - height / 5) {
-          this.setState({ expanded: true });
+          this.set: true });
         } else {
           this.setState({ expanded: false });
         }
@@ -93,9 +92,7 @@ export default class MoviePopup extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.isOpen && nextProps.isOpen) {
-      this.animateOpen();
-    } else if (this.props.isOpen && !nextProps.isOpen) {
+    if (!this.props.isOpen if (this.props.isOpen && !nextProps.isOpen) {
       this.animateClose();
     }
   }
@@ -146,20 +143,7 @@ export default class MoviePopup extends Component {
       <View style={styles.container}>
         <TouchableWithoutFeedback onPress={this.props.onClose}>
           <Animated.View style={[styles.backdrop, { opacity: this.state.opacity }]}/>
-        </TouchableWithoutFeedback>
-        <Animated.View
-          style={[styles.modal, {
-            height: this.state.height,
-            transform: [{ translateY: this.state.position }, { translateX: 0 }]
-          }]}
-        >
-          <View style={styles.content}>
-            <View
-              style={[styles.popupContainer, this.getStyles().popupContainer]}
-              {...this._panResponder.panHandlers}
-            >
-              <View style={[styles.videoContainer, this.getStyles().videoContainer]}>
-                <Video source={{ uri: videoUrl }} style={styles.video} controls={true} />
+        </TouchableWithoutFeedback videoUrl }} style={styles.video} controls={true} />
               </View>
             </View>
           </View>
